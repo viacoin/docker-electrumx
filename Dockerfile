@@ -1,5 +1,5 @@
 FROM python:3.7-alpine3.9
-LABEL maintainer="Luke Childs <lukechilds123@gmail.com>"
+LABEL maintainer="Romano Viacoin Lead dev"
 
 COPY ./bin /usr/local/bin
 COPY ./VERSION /tmp
@@ -10,7 +10,7 @@ RUN VERSION=$(cat /tmp/VERSION) && \
     apk add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/community leveldb-dev && \
     apk add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing rocksdb-dev && \
     pip install aiohttp pylru plyvel websockets python-rocksdb && \
-    git clone -b $VERSION https://github.com/kyuupichan/electrumx.git && \
+    git clone -b $VERSION https://github.com/viacoin/electrumx.git && \
     cd electrumx && \
     python setup.py install && \
     apk del git build-base && \
